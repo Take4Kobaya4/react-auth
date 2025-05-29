@@ -65,7 +65,11 @@ class AuthController extends Controller
             ], 500);
         }
 
-        return response()->json(['token' => $token]);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'ログインができました',
+            'token' => $token
+        ]);
     }
 
 
@@ -101,8 +105,5 @@ class AuthController extends Controller
             ], 500);
         }
     }
-
-    public function user() {
-        return new UserResource(auth()->user);
-    }
+    
 }
